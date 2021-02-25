@@ -2,7 +2,7 @@ function getEle(id) {
     return document.getElementById(id);
 }
 
-var thuVien = new ThuVien(); //chỉ gọi instance của thư viện 1 lần
+var thuVien = new ThuVien(); //chỉ gọi instance của thư viện 1 lần vì chỉ cần 1 mảng chứa sách
 
 function themSach(event) {
     event.preventDefault();
@@ -18,7 +18,7 @@ function themSach(event) {
     var _donGia = parseFloat(getEle('txtDonGia').value);
 
     //khởi tạo 1 đối tượng Sach với các thuộc tính là giá trị người dùng nhập
-
+    // Check dữ liệu người dùng nhập
     if (_maSach === '' || _tenSach === '', _NhaXuatBan === '' || _loaiSach === 'Chọn loại sách' || _ngayPhatHanh === '' || _tinhTrang === 'Chọn tình trạng' || isNaN(_soLuong) || isNaN(_donGia))
         return alert('Vui lòng nhập đầy đủ thông tin!')
     var sach = new Sach(_maSach, _tenSach, _NhaXuatBan, _loaiSach, _ngayPhatHanh, _tinhTrang, _soLuong, _donGia);
@@ -26,7 +26,7 @@ function themSach(event) {
     //Thêm sách vào arrSach[] của thư viện
     thuVien.arrSach.push(sach);
 
-    console.log(thuVien.arrSach)
+    console.log(thuVien.arrSach);
 
     //Gọi hàm hiển thị để hiển thị sách ra cho người dùng thấy
     hienThiSach(thuVien.arrSach);
@@ -35,7 +35,7 @@ function themSach(event) {
 function hienThiSach(arr) {
     var content = '';
 
-    arr.forEach(e => {
+    arr.forEach(e => { //Hàm forEach duyệt mảng nhanh vì cần lấy phần tử, không cần lấy vị trí
         content += '<tr>';
         content += '<td>' + e.maSach + '</td>';
         content += '<td>' + e.tenSach + '</td>';
@@ -52,6 +52,7 @@ function hienThiSach(arr) {
     getEle('tbodySach').innerHTML = content;
 }
 
+//Hàm tạo dữ liệu ảo, push vào arrSach[] của thư viện và hiển thị
 function yummyData() {
     thuVien.arrSach.push(new Sach('S1', 'sách 1', 'Kim Đồng', 'Sách Giáo Khoa', '01/01/2021', 'Mới', 30, 23_000));
     thuVien.arrSach.push(new Sach('S2', 'sách 2', 'Trẻ', 'Sách Tham Khảo', '02/01/2021', 'Cũ', 11, 12_000));

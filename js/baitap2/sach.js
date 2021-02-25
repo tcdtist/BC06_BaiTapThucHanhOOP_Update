@@ -12,5 +12,5 @@ function Sach(_maSach, _tenSach, _NhaXuatBan, _loaiSach, _ngayPhatHanh, _tinhTra
     this.tinhTienSach = function () {
         return this.thanhTien = (this.soLuong * this.donGia);
     }
-    this.tinhTienSach(); //gọi chạy
+    this.tinhTienSach(); //gọi chạy để tính và trả về thành tiền
 }
