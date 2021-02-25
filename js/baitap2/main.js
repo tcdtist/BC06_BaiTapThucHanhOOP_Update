@@ -44,8 +44,8 @@ function hienThiSach(arr) {
         content += '<td>' + e.ngayPhatHanh + '</td>';
         content += '<td>' + e.tinhTrang + '</td>';
         content += '<td>' + e.soLuong + '</td>';
-        content += '<td>' + e.donGia + '</td>';
-        content += '<td>' + e.thanhTien + '</td>';
+        content += '<td>' + formatMoney(e.donGia) + ' VND </td>';
+        content += '<td>' + formatMoney(e.thanhTien) + ' VND </td>';
         content += '</tr>';
     });
 
@@ -66,5 +66,14 @@ function yummyData() {
     thuVien.arrSach.push(new Sach('S10', 'sách 10', 'Hà Nội', 'Sách Tham Khảo', '10/01/2021', 'Cũ', 22, 5_000));
     thuVien.arrSach.push(new Sach('S11', 'sách 11', 'Nhã Nam', 'Sách Giáo Khoa', '11/01/2021', 'Mới', 101, 77_000));
     thuVien.arrSach.push(new Sach('S12', 'sách 12', 'Thái Hà Books', 'Sách Tham Khảo', '12/01/2021', 'Cũ', 10, 29_000));
+
+    console.log(thuVien.arrSach);
+
     hienThiSach(thuVien.arrSach);
+}
+
+formatMoney = (money) => {
+    var currentFormat = new Intl.NumberFormat("vn-VN");
+    var moneyFormat = currentFormat.format(money);
+    return moneyFormat;
 }
