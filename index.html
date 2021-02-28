@@ -12,7 +12,7 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-6 mx-auto">
+      <div class="col-8 mx-auto">
         <h3 class="display-4 text-center">Quản Lý Thư Viện</h3>
         <form>
           <div class="row">
@@ -32,7 +32,7 @@
             </div>
             <div class="col-6 form-group">
               <label for="">Loại sách: </label>
-              <select name="" id="txtloaiSach" class="form-control">
+              <select name="" id="txtLoaiSach" class="form-control">
                 <option>Chọn loại sách</option>
                 <option>Sách giáo khoa</option>
                 <option>Sách tham khảo</option>
@@ -65,16 +65,21 @@
           </div>
 
           <div class="form-group text-center">
-            <button type="submit" class="btn btn-success" onclick="themSach(event)">
-              Thêm Sách
-            </button>
-            <button type="button" class="btn btn-primary ml-3" onclick="yummyData()">
-              Thêm Sách Dữ Liệu Ảo
-            </button>
+            <div class="row w-50 mx-auto">
+              <button id="themSach" type="submit" class="btn btn-success col-5 mx-auto" onclick="themSach(event)">
+                Thêm Sách
+              </button>
+              <button id="yummyData" type="button" class="btn btn-primary col-5 mx-auto">
+                Thêm Sách Dữ Liệu Ảo
+              </button>
+              <button id="capNhatSach" type="button" class="btn btn-info col-3 mx-auto" style="display:none">
+                Cập nhật
+              </button>
+            </div>
           </div>
         </form>
       </div>
-      <div class="col-8 mx-auto">
+      <div class="col-11 mx-auto">
         <table class="table">
           <thead>
             <tr>
