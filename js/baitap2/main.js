@@ -93,6 +93,12 @@ getEle('yummyData').addEventListener('click', function () {
 // XÓA SÁCH
 function xoaSach(maSach) {
     thuVien.xoaSach(maSach);
+
+    //Lưu sách xuống localStorage
+    setLocalStorage(thuVien.arrSach);
+
+    //Lây dữ liệu từ localStorage và hiển thị lại
+    getLocalStorage();
 }
 
 // SỬA THÔNG TIN SÁCH
