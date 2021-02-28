@@ -22,7 +22,7 @@ function themSach(event) {
     var sach = new Sach(_maSach, _tenSach, _nhaXuatBan, _loaiSach, _ngayPhatHanh, _tinhTrang, _soLuong, _donGia);
 
     //Thêm sách vào arrSach[] của thư viện
-    thuVien.themSach(sach);
+    thuVien.themSachVaoThuVien(sach);
 
     console.log(thuVien.arrSach);
 
@@ -44,7 +44,7 @@ function hienThiSach(arr) {
                 <td>${arr[i].tenSach}</td>
                 <td>${arr[i].NhaXuatBan}</td>
                 <td>${arr[i].loaiSach}</td>
-                <td>${arr[i].ngayPhatHanh}</td>
+                <td>${unformatDay(arr[i].ngayPhatHanh)}</td>
                 <td>${arr[i].tinhTrang}</td>
                 <td>${arr[i].soLuong}</td>
                 <td>${formatMoney(arr[i].donGia)} VND</td>
@@ -63,19 +63,19 @@ function hienThiSach(arr) {
 // Hàm tạo dữ liệu ảo, push vào arrSach[] của thư viện và hiển thị
 getEle('yummyData').addEventListener('click', function () {
     if (thuVien.arrSach.length === 0) {
-        console.log(thuVien.arrSach);
-        thuVien.themSach(new Sach('S1', 'sách 1', 'Kim Đồng', 'Sách giáo khoa', '2021/01/01', 'Mới', 30, 23_000));
-        thuVien.themSach(new Sach('S2', 'sách 2', 'Trẻ', 'Sách tham khảo', '2021/01/02', 'Cũ', 11, 12_000));
-        thuVien.themSach(new Sach('S3', 'sách 3', 'Giáo Dục', 'Sách giáo khoa', '2021/01/03', 'Mới', 17, 20_000));
-        thuVien.themSach(new Sach('S4', 'sách 4', 'Thế Giới', 'Sách tham khảo', '2021/01/04', 'Cũ', 100, 53_000));
-        thuVien.themSach(new Sach('S5', 'sách 5', 'Tư Pháp', 'Sách giáo khoa', '2021/01/05', 'Mới', 70, 21_000));
-        thuVien.themSach(new Sach('S6', 'sách 6', 'Hội Nhà Văn', 'Sách tham khảo', '2021/01/06', 'Cũ', 65, 14_000));
-        thuVien.themSach(new Sach('S7', 'sách 7', 'Cộng Đồng', 'Sách giáo khoa', '2021/01/07', 'Mới', 33, 12_000));
-        thuVien.themSach(new Sach('S8', 'sách 8', 'Lao Động', 'Sách tham khảo', '2021/01/08', 'Cũ', 7, 2_000));
-        thuVien.themSach(new Sach('S9', 'sách 9', 'GTVT', 'Sách giáo khoa', '2021/01/09', 'Mới', 91, 34_000));
-        thuVien.themSach(new Sach('S10', 'sách 10', 'Hà Nội', 'Sách tham khảo', '2021/01/10', 'Cũ', 22, 5_000));
-        thuVien.themSach(new Sach('S11', 'sách 11', 'Nhã Nam', 'Sách giáo khoa', '2021/01/11', 'Mới', 101, 77_000));
-        thuVien.themSach(new Sach('S12', 'sách 12', 'Thái Hà Books', 'Sách tham khảo', '2021/01/12', 'Cũ', 10, 29_000));
+        // console.log(thuVien.arrSach);
+        thuVien.themSachVaoThuVien(new Sach('S1', 'sách 1', 'Kim Đồng', 'Sách giáo khoa', '2021/01/01', 'Mới', 30, 23_000));
+        thuVien.themSachVaoThuVien(new Sach('S2', 'sách 2', 'Trẻ', 'Sách tham khảo', '2021/01/02', 'Cũ', 11, 12_000));
+        thuVien.themSachVaoThuVien(new Sach('S3', 'sách 3', 'Giáo Dục', 'Sách giáo khoa', '2021/01/03', 'Mới', 17, 20_000));
+        thuVien.themSachVaoThuVien(new Sach('S4', 'sách 4', 'Thế Giới', 'Sách tham khảo', '2021/01/04', 'Cũ', 100, 53_000));
+        thuVien.themSachVaoThuVien(new Sach('S5', 'sách 5', 'Tư Pháp', 'Sách giáo khoa', '2021/01/05', 'Mới', 70, 21_000));
+        thuVien.themSachVaoThuVien(new Sach('S6', 'sách 6', 'Hội Nhà Văn', 'Sách tham khảo', '2021/01/06', 'Cũ', 65, 14_000));
+        thuVien.themSachVaoThuVien(new Sach('S7', 'sách 7', 'Cộng Đồng', 'Sách giáo khoa', '2021/01/07', 'Mới', 33, 12_000));
+        thuVien.themSachVaoThuVien(new Sach('S8', 'sách 8', 'Lao Động', 'Sách tham khảo', '2021/01/08', 'Cũ', 7, 2_000));
+        thuVien.themSachVaoThuVien(new Sach('S9', 'sách 9', 'GTVT', 'Sách giáo khoa', '2021/01/09', 'Mới', 91, 34_000));
+        thuVien.themSachVaoThuVien(new Sach('S10', 'sách 10', 'Hà Nội', 'Sách tham khảo', '2021/01/10', 'Cũ', 22, 5_000));
+        thuVien.themSachVaoThuVien(new Sach('S11', 'sách 11', 'Nhã Nam', 'Sách giáo khoa', '2021/01/11', 'Mới', 101, 77_000));
+        thuVien.themSachVaoThuVien(new Sach('S12', 'sách 12', 'Thái Hà Books', 'Sách tham khảo', '2021/01/12', 'Cũ', 10, 29_000));
 
         // console.log(thuVien.arrSach);
 
@@ -116,7 +116,8 @@ function suaThongTinSach(maSach) {
         getEle('txtSoLuong').value = sach.soLuong;
         getEle('txtDonGia').value = sach.donGia;
     }
-    getEle('themSach').className = 'btn btn-success col-3 mx-auto';
+
+    document.getElementsByTagName('button')[0].className = 'btn btn-success col-3 mx-auto';
     getEle('capNhatSach').style.display = 'block';
 }
 
@@ -155,6 +156,10 @@ function getEle(id) {
 
 function formatDay(date) { //xóa '/' thay bằng '-' => đúng format date
     return date.split('/').join('-')
+}
+
+function unformatDay(date) { //xóa '-' thay bằng '/' => hiển thị lên màn hình
+    return date.split('-').join('/')
 }
 
 // FUNCTION GET & SET LocalStorage

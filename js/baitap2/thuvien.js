@@ -1,7 +1,7 @@
 function ThuVien() {
     this.arrSach = []; //Đối tượng Thư Viện chỉ chứa 1 thuộc tính là mảng sách
 
-    this.themSach = function (sach) {
+    this.themSachVaoThuVien = function (sach) {
         this.arrSach.push(sach);
     }
     this.timViTriSach = function (maSach) {

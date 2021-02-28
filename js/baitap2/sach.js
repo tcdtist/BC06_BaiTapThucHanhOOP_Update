@@ -10,7 +10,7 @@ function Sach(_maSach, _tenSach, _NhaXuatBan, _loaiSach, _ngayPhatHanh, _tinhTra
     this.thanhTien = 0;
 
     this.tinhTienSach = function () {
-        this.thanhTien = (this.soLuong * this.donGia);
+        this.thanhTien = (this.soLuong * this.donGia).toFixed(2);
     }
     this.tinhTienSach(); //gọi chạy để tính và trả về thành tiền
 }
