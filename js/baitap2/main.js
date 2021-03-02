@@ -118,31 +118,45 @@ function suaThongTinSach(maSach) {
     }
 
     document.getElementsByTagName('button')[0].className = 'btn btn-success col-3 mx-auto';
+    document.getElementsByTagName('button')[0].disabled = true;
     getEle('capNhatSach').style.display = 'block';
 }
 
 // CẬP NHẬT THAY ĐỔI
 getEle('capNhatSach').addEventListener('click', function () {
     var maSachCanCapNhat = getEle('txtMaSach').value;
-    var viTriSua = thuVien.timViTriSach(maSachCanCapNhat);
 
-    var sachCapNhat = thuVien.arrSach[viTriSua]; //gán vào biến cho gọn code
-    // var sachCapNhat = thuVien.arrSach[thuVien.timViTriSach(getEle('txtMaSach').value)];
+    var tenSach = getEle('txtTenSach').value;
+    var nhaXuatBan = getEle('txtNXB').value;
+    var loaiSach = getEle('txtLoaiSach').value;
+    var ngayPhatHanh = getEle('txtNgayPhatHanh').value;
+    var tinhTrang = getEle('txtTinhTrang').value;
+    var soLuong = parseFloat(getEle('txtSoLuong').value);
+    var donGia = parseFloat(getEle('txtDonGia').value);
 
-    sachCapNhat.tenSach = getEle('txtTenSach').value;
-    sachCapNhat.nhaXuatBan = getEle('txtNXB').value;
-    sachCapNhat.loaiSach = getEle('txtLoaiSach').value;
-    sachCapNhat.ngayPhatHanh = getEle('txtNgayPhatHanh').value;
-    sachCapNhat.tinhTrang = getEle('txtTinhTrang').value;
-    sachCapNhat.soLuong = parseFloat(getEle('txtSoLuong').value);
-    sachCapNhat.donGia = parseFloat(getEle('txtDonGia').value);
-    sachCapNhat.thanhTien = sachCapNhat.soLuong * sachCapNhat.donGia;
+    var sachCapNhat = new Sach(maSachCanCapNhat, tenSach, nhaXuatBan, loaiSach, ngayPhatHanh, tinhTrang, soLuong, donGia);
+
+    thuVien.capNhatSach(maSachCanCapNhat, sachCapNhat);
 
     //Lưu thay đổi xuống localStorage
     setLocalStorage(thuVien.arrSach);
 
     //Lây dữ liệu từ localStorage và hiển thị lại
     getLocalStorage();
+
+    //trả lại layout ban đầu
+    document.getElementsByTagName('button')[0].className = 'btn btn-success col-5 mx-auto';
+    document.getElementsByTagName('button')[0].disabled = false;
+    getEle('capNhatSach').style.display = 'none';
+
+    getEle('txtMaSach').value = '';
+    getEle('txtTenSach').value = '';
+    getEle('txtNXB').value = '';
+    getEle('txtLoaiSach').value = '';
+    getEle('txtNgayPhatHanh').value = '';
+    getEle('txtTinhTrang').value = '';
+    getEle('txtSoLuong').value = '';
+    getEle('txtDonGia').value = '';
 });
 
 // Function phụ

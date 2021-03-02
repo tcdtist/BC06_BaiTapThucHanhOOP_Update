@@ -27,4 +27,10 @@ function ThuVien() {
         }
         return null;
     }
+    this.capNhatSach = function (maSach, sachCapNhat) {
+        var viTriCapNhat = this.timViTriSach(maSach);
+        if (viTriCapNhat !== -1) {
+            this.arrSach.splice(viTriCapNhat, 1, sachCapNhat);
+        }
+    }
 }
